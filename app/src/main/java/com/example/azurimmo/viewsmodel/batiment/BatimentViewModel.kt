@@ -14,6 +14,10 @@ class BatimentViewModel : ViewModel() {
     private val _batiments = MutableStateFlow<List<Batiment>>(emptyList())
     val batiments: StateFlow<List<Batiment>> = _batiments
 
+    private val _batiment = MutableStateFlow<Batiment?>(null)
+    val batiment: StateFlow<Batiment?> = _batiment
+
+
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
@@ -23,10 +27,11 @@ class BatimentViewModel : ViewModel() {
     init {
         // Simuler un chargement de données initiales
         getBatiments()
+        getBatiment(id = 1)
     }
 
     // Fonction pour simuler le chargement de bâtiments
-    private fun getBatiments() {
+    fun getBatiments() {
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null  // Réinitialise l'erreur avant l'appel
@@ -39,6 +44,23 @@ class BatimentViewModel : ViewModel() {
             } finally {
                 _isLoading.value = false
                 println("Chargement terminé")
+            }
+        }
+    }
+
+    fun getBatiment(id: Int) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            _errorMessage.value = null  // Réinitialise l'erreur avant l'appel
+
+            try {
+                val response = RetrofitInstance.api.getBatiment(id)
+                _batiment.value = response.body()
+            } catch (e: Exception) {
+                _errorMessage.value = "Erreur : ${e.localizedMessage ?: "Une erreur s'est produite"}"
+            } finally {
+                _isLoading.value = false
+                println("Chargement du batiment terminé")
             }
         }
     }

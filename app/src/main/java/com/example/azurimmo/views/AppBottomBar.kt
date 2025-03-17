@@ -23,7 +23,6 @@ fun AppBottomBar(navController: NavController) {
 
     val items = listOf(
         BottomNavItem("Bâtiments", "batiments_list", Icons.Filled.Business),
-        BottomNavItem("Appts", "appartements_list", Icons.Filled.Home),
         BottomNavItem("Contrats", "contrats_list", Icons.Filled.Description),
         BottomNavItem("Locataires", "locataires_list", Icons.Filled.Person),
         BottomNavItem("Paiements", "paiements_list", Icons.Filled.AttachMoney)
