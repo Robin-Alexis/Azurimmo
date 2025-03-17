@@ -12,9 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.azurimmo.model.Paiement
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun PaiementCard(paiement: Paiement) {
+
+    val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -23,9 +27,8 @@ fun PaiementCard(paiement: Paiement) {
         shape = RoundedCornerShape(8.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = "Paiement #${paiement.id}", style = MaterialTheme.typography.bodyLarge)
-            Text(text = "Contrat: ${paiement.contratId}", style = MaterialTheme.typography.bodyMedium)
-            Text(text = "Date: ${paiement.datePaiement}", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "Contrat #${paiement.contrat.id}", style = MaterialTheme.typography.bodyLarge)
+            Text(text = "Date: ${paiement.datePaiement.format(formatter)}", style = MaterialTheme.typography.bodyMedium)
             Text(text = "Montant: ${paiement.montant} €", style = MaterialTheme.typography.bodyMedium)
         }
     }

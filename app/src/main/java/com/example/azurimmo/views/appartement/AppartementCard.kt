@@ -40,6 +40,11 @@ fun AppartementCard(appartement: Appartement) {
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(top = 4.dp)
                 )
+                Text(
+                    text= appartement.batiment.ville,
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
             }
             Column {
                 Text(
