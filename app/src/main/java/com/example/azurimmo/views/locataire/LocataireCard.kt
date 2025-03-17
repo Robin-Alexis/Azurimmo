@@ -24,7 +24,7 @@ fun LocataireCard(locataire: Locataire) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = "${locataire.prenom} ${locataire.nom}", style = MaterialTheme.typography.bodyLarge)
-            Text(text = locataire.telephone, style = MaterialTheme.typography.bodyMedium)
+            Text(text = locataire.telephone.toString(), style = MaterialTheme.typography.bodyMedium)
             Text(text = locataire.email, style = MaterialTheme.typography.bodyMedium)
         }
     }
