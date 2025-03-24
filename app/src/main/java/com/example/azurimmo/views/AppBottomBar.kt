@@ -2,6 +2,7 @@ package com.example.azurimmo.views
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachMoney
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Business
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Home
@@ -25,7 +26,8 @@ fun AppBottomBar(navController: NavController) {
         BottomNavItem("Bâtiments", "batiments_list", Icons.Filled.Business),
         BottomNavItem("Contrats", "contrats_list", Icons.Filled.Description),
         BottomNavItem("Locataires", "locataires_list", Icons.Filled.Person),
-        BottomNavItem("Paiements", "paiements_list", Icons.Filled.AttachMoney)
+        BottomNavItem("Paiements", "paiements_list", Icons.Filled.AttachMoney),
+        BottomNavItem("Réparations", "reparations_list", Icons.Filled.Build)
     )
 
     var selectedItem by remember { mutableStateOf(0) }

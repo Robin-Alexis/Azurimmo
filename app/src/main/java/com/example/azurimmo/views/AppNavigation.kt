@@ -11,6 +11,7 @@ import com.example.azurimmo.views.batiment.BatimentList
 import com.example.azurimmo.views.contrat.ContratList
 import com.example.azurimmo.views.locataire.LocataireList
 import com.example.azurimmo.views.paiement.PaiementList
+import com.example.azurimmo.views.reparation.ReparationList
 
 @Composable
 fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -36,6 +37,9 @@ fun AppNavigation(navController: NavHostController, modifier: Modifier = Modifie
         }
         composable("paiements_list") {
             PaiementList()
+        }
+        composable("reparations_list"){
+            ReparationList()
         }
     }
 }
